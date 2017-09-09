@@ -1,7 +1,7 @@
 {
-  "name": "conventional-changelog-angular",
+  "name": "conventional-changelog-emoji",
   "version": "1.5.0",
-  "description": "conventional-changelog angular preset",
+  "description": "conventional-changelog emoji preset",
   "main": "index.js",
   "scripts": {
     "lint": "jshint *.js --exclude node_modules && jscs *.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/conventional-changelog/conventional-changelog-angular.git"
+    "url": "git+https://github.com/Lukinoh/conventional-changelog-emoji.git"
   },
   "keywords": [
     "conventional-changelog",
@@ -24,9 +24,9 @@
   "author": "Steve Mao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/conventional-changelog/conventional-changelog-angular/issues"
+    "url": "https://github.com/Lukinoh/conventional-changelog-emoji/issues"
   },
-  "homepage": "https://github.com/conventional-changelog/conventional-changelog-angular#readme",
+  "homepage": "https://github.com/Lukinoh/conventional-changelog-emoji#readme",
   "devDependencies": {
     "better-than-before": "^1.0.0",
     "chai": "^3.4.1",

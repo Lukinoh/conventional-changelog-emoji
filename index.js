@@ -5,8 +5,9 @@ var readFile = Q.denodeify(require('fs').readFile);
 var resolve = require('path').resolve;
 
 var parserOpts = {
-  headerPattern: /^(\w*)(?:\((.*)\))?\: (.*)$/,
+  headerPattern: /^(..?) (\w*)(?:\((.*)\))?\: (.*)$/,
   headerCorrespondence: [
+    'emoji',
     'type',
     'scope',
     'subject'
@@ -27,25 +28,29 @@ var writerOpts = {
     });
 
     if (commit.type === 'feat') {
-      commit.type = 'Features';
+      commit.type = commit.emoji + ' Features';
     } else if (commit.type === 'fix') {
-      commit.type = 'Bug Fixes';
+      commit.type = commit.emoji + ' Bug Fixes';
+    } else if (commit.type === 'docs') {
+      commit.type = commit.emoji + ' Documentation';
+    } else if (commit.type === 'style') {
+      commit.type = commit.emoji + ' Styles';
+    } else if (commit.type === 'refactor') {
+      commit.type = commit.emoji + ' Code Refactoring';
     } else if (commit.type === 'perf') {
-      commit.type = 'Performance Improvements';
+      commit.type = commit.emoji + ' Performance Improvements';
+    } else if (commit.type === 'test') {
+      commit.type = commit.emoji + ' Tests';
+    } else if (commit.type === 'build') {
+      commit.type = commit.emoji + ' Build';
+    } else if (commit.type === 'ci') {
+      commit.type = commit.emoji + ' Continuous Integration';
+    } else if (commit.type === 'chore') {
+      commit.type = commit.emoji + ' Chores';
     } else if (commit.type === 'revert') {
-      commit.type = 'Reverts';
+      commit.type = commit.emoji + ' Reverts';
     } else if (discard) {
       return;
-    } else if (commit.type === 'docs') {
-      commit.type = 'Documentation';
-    } else if (commit.type === 'style') {
-      commit.type = 'Styles';
-    } else if (commit.type === 'refactor') {
-      commit.type = 'Code Refactoring';
-    } else if (commit.type === 'test') {
-      commit.type = 'Tests';
-    } else if (commit.type === 'chore') {
-      commit.type = 'Chores';
     }
 
     if (commit.scope === '*') {
